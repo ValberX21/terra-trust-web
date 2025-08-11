@@ -1,0 +1,74 @@
+:host {
+  --sidebar-width: 260px;
+}
+
+/* base reset */
+html, body { height: 100%; }
+body { margin: 0; }
+
+/* Desktop layout */
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  min-height: 100vh;
+}
+
+/* Right side */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 12px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.menu-btn {
+  display: none; /* hidden on desktop */
+  font-size: 20px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* Mobile behavior */
+@media (max-width: 992px) {
+  .layout {
+    grid-template-columns: 1fr; /* sidebar becomes overlay */
+  }
+
+  .menu-btn { display: inline-block; }
+
+  /* drawer: target the host element of the sidebar */
+  app-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(80vw, var(--sidebar-width));
+    height: 100dvh;
+    transform: translateX(-100%);     /* CLOSED state */
+    transition: transform .2s ease;
+    z-index: 1000;
+  }
+  app-sidebar.open {
+    transform: translateX(0);          /* OPEN state */
+  }
+
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 900;
+  }
+}

@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Property Listing</h2>
+    <a class="btn btn-primary" routerLink="/properties/new">Add Property (+)</a>
+  </div>
+
+  <div class="table-wrap">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Zoning</th>
+           <!--<th class="right">Area (m²)</th>
+          <th class="right">Value</th>
+          <th class="center">Status</th>
+          <th class="center">Action</th> -->
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let p of propertiesList">
+          <td>{{ p.id }}</td>
+          <td class="truncate">{{ p.name }}</td>
+          <td>{{ p.type }}</td>
+          <td>{{ p.zoningType }}</td>
+          <!--<td class="right">{{ p.areaInSquareMeters | number:'1.0-0' }}</td>
+          <td class="right">{{ p.value | currency:'USD':'symbol-narrow' }}</td>
+          <td class="center">
+            <span class="chip chip-success">Active</span>
+          </td>
+          <td class="center actions">
+            <a class="btn btn-info" [routerLink]="['/properties', p.id, 'edit']">Edit</a>
+            <button class="btn btn-danger" (click)="onDelete(p)">Delete</button>
+          </td> -->
+        </tr>
+
+        <tr *ngIf="!propertiesList?.length">
+          <td colspan="8" class="empty">No properties found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-footer">
+    <div class="footer-left">
+      <label for="pageSize">Items per page:</label>
+      <select [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange($event)">
+        <option [ngValue]="5">5</option>
+        <option [ngValue]="10">10</option>
+        <option [ngValue]="20">20</option>
+      </select>
+    </div>
+
+    <div class="footer-center">
+      {{ (page-1)*pageSize + 1 }} – {{ Math.min(page*pageSize, totalItems) }} of {{ totalItems }}
+    </div>
+
+    <div class="footer-right">
+      <button type="button" (click)="goToPage(1)"            [disabled]="!hasPrev">«</button>
+      <button type="button" (click)="goToPage(page - 1)"      [disabled]="!hasPrev">‹</button>
+      <button type="button" (click)="goToPage(page + 1)"      [disabled]="!hasNext">›</button>
+      <button type="button" (click)="goToPage(lastPage)"      [disabled]="!hasNext">»</button>
+    </div>
+  </div>
+</div>

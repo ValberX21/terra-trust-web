@@ -1,0 +1,8 @@
+<nav class="sidebar-nav">
+  <div class="brand">Terra trust</div>
+
+  <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="onNavClick()">Dashboard</a>
+  <div class="section">Properties</div>
+  <a routerLink="/properties" routerLinkActive="active" (click)="onNavClick()">List</a>
+  <a routerLink="/properties/new" routerLinkActive="active" (click)="onNavClick()">New</a>
+</nav>
