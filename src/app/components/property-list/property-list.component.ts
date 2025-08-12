@@ -2,21 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { PropertyService } from '../../service/PropertyService.Service';
 import { CommonModule } from '@angular/common';
 import { Property } from '../../interfaces/Property.interface';
-import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { PagedResult } from '../../interfaces/PagedResult.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-property-list',
   standalone:true,
-  imports: [CommonModule, RouterLink, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './property-list.component.html',
   styleUrl: './property-list.component.css'
 })
 
 export class PropertyListComponent implements OnInit {
 
-  constructor(private propertiesService: PropertyService) {}
+  constructor(private propertiesService: PropertyService,
+              private router:Router
+  ) {}
 
   propertiesList : any[] = [];
   page = 1;
@@ -37,7 +38,6 @@ export class PropertyListComponent implements OnInit {
         console.log(res)
         this.propertiesList =  res.items
         this.totalItems = res.totalItems
-
       }
     })
   }
@@ -54,6 +54,10 @@ export class PropertyListComponent implements OnInit {
 
   onDelete(p: Property) { 
    
+  }
+
+  newProperty(){
+    this.router.navigate(['/createProperty'])
   }
 
   

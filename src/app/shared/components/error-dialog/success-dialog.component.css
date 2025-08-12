@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  max-width: 640px;
+  color: #0f172a;
+}
+
+:host-context(.success-dialog) .mdc-dialog__surface {
+  border-radius: 16px !important;
+  border: 1px solid rgba(21, 128, 61, .2);
+  box-shadow:
+    0 20px 40px rgba(21, 128, 61, .15),
+    0 6px 12px rgba(21, 128, 61, .08) !important;
+}
+
+/* Title */
+:host ::ng-deep h2[mat-dialog-title] {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #15803d;
+}
+
+/* Message */
+:host ::ng-deep .mat-mdc-dialog-content p {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  color: #166534;
+}
+
+/* Actions row */
+:host ::ng-deep .mat-mdc-dialog-actions {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* OK button (green gradient) */
+:host ::ng-deep .mat-mdc-dialog-actions button {
+  min-width: 104px;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #22c55e, #15803d);
+  box-shadow: 0 10px 18px rgba(21, 128, 61, .25);
+}

@@ -1,1 +1,40 @@
-<p>property-form works!</p>
+<h2 class="title">Register New Property</h2>
+
+<form class="form-card" [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+  <div class="field">
+    <label for="name">Property Name</label>
+    <input id="name" formControlName="name" type="text" placeholder="Enter property name" />
+    <small class="error" *ngIf="propertyForm.get('name')?.invalid && propertyForm.get('name')?.touched">
+      Name is required.
+    </small>
+  </div>
+
+<div class="field">
+  <label for="type">Type</label>
+
+  <div class="select-wrap">
+      <select id="type" formControlName="type" class="custom-select" required>
+        <option value="" disabled selected hidden>Select a property type</option>
+        <option *ngFor="let t of propertyType" [value]="t.key">
+          {{ t.value }}
+        </option>
+    </select>
+  </div>
+
+  <small class="error" *ngIf="propertyForm.get('type')?.invalid && propertyForm.get('type')?.touched">
+    Type is required.
+  </small>
+</div>
+
+
+
+  <div class="field">
+    <label for="owner">Owner</label>
+    <input id="ownerId" formControlName="ownerId" type="text" placeholder="Enter owner name" />
+    <small class="error" *ngIf="propertyForm.get('owner')?.invalid && propertyForm.get('owner')?.touched">
+      Owner is required.
+    </small>
+  </div>
+
+  <button class="primary-btn" type="submit">Save Property</button>
+</form>
