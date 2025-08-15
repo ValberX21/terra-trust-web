@@ -1,59 +1,113 @@
-# TerraTrustWeb
+# 🌍 Terra Trust Web
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+**Terra Trust Web** is the front-end application for the Terra Trust platform, built with **Angular**.  
+It provides a user interface for property management operations, including property creation, listing, and other related features.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📂 Project Structure
+
+```
+TERRA-TRUST-WEB/
+│
+├── src/
+│   ├── app/
+│   │   ├── assets/
+│   │   │   └── img/                 # Application images and icons
+│   │   ├── components/              # Reusable UI components
+│   │   ├── core/                     # Core services, interceptors, and guards
+│   │   ├── enums/                    # Application enums
+│   │   ├── environments/             # Environment configs (dev/prod)
+│   │   ├── interfaces/               # TypeScript interfaces and models
+│   │   ├── pages/                     # Application pages (views)
+│   │   ├── service/                   # Business logic and API calls
+│   │   ├── shared/                    # Shared components and modules
+│   │   ├── app.component.*            # Root component
+│   │   ├── app.config.ts              # App configuration
+│   │   ├── app.routes.ts              # Angular routing
+│   ├── index.html
+│   ├── main.ts
+│   ├── styles.css                     # Global styles
+│
+├── angular.json                       # Angular CLI configuration
+├── package.json                       # Dependencies and scripts
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Prerequisites
+Make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (LTS recommended)
+- [Angular CLI](https://angular.io/cli)
+
+```bash
+npm install -g @angular/cli
+```
+
+---
+
+### 2️⃣ Installation
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/your-username/TERRA-TRUST-WEB.git
+cd TERRA-TRUST-WEB
+npm install
+```
+
+---
+
+### 3️⃣ Running the Application
+Start the development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+Then open your browser at:
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
+
+### 4️⃣ Build for Production
+To generate a production build:
 
 ```bash
-ng generate --help
+ng build --configuration production
 ```
 
-## Building
+The compiled files will be located in the `dist/` folder.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 📸 Screenshots
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+| Create Property | Property List |
+|-----------------|---------------|
+| ![Create](src/app/assets/img/propertyFrontCreate.png) | ![List](src/app/assets/img/propertyFrontList.png) |
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🛠 Tech Stack
+- **Framework:** Angular 18
+- **Language:** TypeScript
+- **Styling:** CSS
+- **Build Tool:** Angular CLI
+- **Package Manager:** npm
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## 📌 Features
+- Create new properties with relevant details
+- List and manage registered properties
+- Organized folder structure for scalability
+- Reusable UI components and services
+- Environment-based configuration
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
