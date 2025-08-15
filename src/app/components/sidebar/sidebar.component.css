@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;     
 }
 
 .sidebar-nav { padding: 16px; }
@@ -16,6 +17,7 @@
   font-weight: 800;
   color: #fff;
   margin: 8px 0 20px;
+  
 }
 
 .section {
